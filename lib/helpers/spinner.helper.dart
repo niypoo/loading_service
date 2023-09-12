@@ -15,31 +15,38 @@ class SpinnerHelper {
 
   static Widget verticalTextSpinner({
     double size = 60,
-    double top = 60,
+    String? text,
   }) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        LoadingService.to.spinner!,
+        // Loading
+        basic(size: size),
+
         const SizedBox(height: 15),
+
         Text(
-          'Loading...'.tr,
+          text ?? 'Loading...'.tr,
           style: Get.textTheme.bodySmall,
         ),
       ],
     );
   }
 
-  static Widget horizontalTextSpinner() {
+  static Widget horizontalTextSpinner({
+    double size = 60,
+    String? text,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        LoadingService.to.spinner!,
+        // Loading
+        basic(size: size),
         const SizedBox(width: 15),
         Text(
-          'Loading...'.tr,
+          text ?? 'Loading...'.tr,
           style: Get.textTheme.bodySmall,
         ),
       ],
