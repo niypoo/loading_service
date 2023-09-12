@@ -25,7 +25,7 @@ class LoadingService extends GetxService {
 
   Future<LoadingService> init() async {
     EasyLoading.instance
-      // ..displayDuration = const Duration(milliseconds: 2000)
+      ..displayDuration = const Duration(milliseconds: 2000)
       ..indicatorType = EasyLoadingIndicatorType.fadingCircle
       ..loadingStyle = EasyLoadingStyle.dark
       ..indicatorSize = 45.0
@@ -36,8 +36,7 @@ class LoadingService extends GetxService {
       ..textColor = Colors.yellow
       ..maskColor = Colors.blue.withOpacity(0.5)
       ..userInteractions = true
-      ..dismissOnTap = false
-      ..indicatorWidget = spinner;
+      ..dismissOnTap = false;
 
     // EasyLoading().maskColor =
     //     maskColor ?? Get.theme.iconTheme.color!.withOpacity(0.4);
