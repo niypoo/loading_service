@@ -10,6 +10,7 @@ class LoadingService extends GetxService {
   final Widget? spinner;
   final EasyLoadingMaskType maskType;
   final Color? maskColor;
+  final Color? backgroundColor;
   final Widget? indicator;
   final bool? dismissOnTap;
 
@@ -19,10 +20,13 @@ class LoadingService extends GetxService {
     this.indicator,
     this.dismissOnTap = false,
     this.maskColor = Colors.black12,
+    this.backgroundColor = Colors.black12,
   });
 
   Future<LoadingService> init() async {
-    EasyLoading().maskColor = maskColor ?? Colors.black12;
+    EasyLoading().maskColor =
+        maskColor ?? Get.theme.iconTheme.color!.withOpacity(0.4);
+    EasyLoading().backgroundColor = backgroundColor ?? Get.theme.cardColor;
     EasyLoading().indicatorWidget = indicator;
     EasyLoading().maskType = maskType;
     EasyLoading().dismissOnTap = dismissOnTap;
