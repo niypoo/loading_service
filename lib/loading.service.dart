@@ -7,7 +7,6 @@ class LoadingService extends GetxService {
   static LoadingService get to => Get.find();
 
   // properties
-  final Widget? spinner;
   final EasyLoadingMaskType maskType;
   final Color? maskColor;
   final Color? backgroundColor;
@@ -15,48 +14,21 @@ class LoadingService extends GetxService {
   final bool? dismissOnTap;
 
   LoadingService({
-    required this.spinner,
     this.maskType = EasyLoadingMaskType.black,
     this.indicator,
     this.dismissOnTap = false,
-    this.maskColor,
-    this.backgroundColor,
+    this.maskColor ,
+    this.backgroundColor ,
   });
 
   Future<LoadingService> init() async {
-    EasyLoading.instance
-      ..displayDuration = const Duration(milliseconds: 2000)
-      ..indicatorType = EasyLoadingIndicatorType.fadingCircle
-      ..loadingStyle = EasyLoadingStyle.dark
-      ..indicatorSize = 45.0
-      ..radius = 10.0
-      ..progressColor = Colors.yellow
-      ..backgroundColor = Colors.green
-      ..indicatorColor = Colors.yellow
-      ..textColor = Colors.yellow
-      ..maskColor = Colors.blue.withOpacity(0.5)
-      ..userInteractions = true
-      ..dismissOnTap = false
-      ..indicatorWidget = spinner;
-      // ..customAnimation = CustomAnimation();
+    EasyLoading().maskColor = maskColor ?? Get.theme.cardColor.withOpacity(0.5);
+    EasyLoading().backgroundColor = backgroundColor ?? Get.theme.primaryColor;
+    EasyLoading().indicatorWidget = indicator;
+    EasyLoading().maskType = maskType;
+    EasyLoading().dismissOnTap = dismissOnTap;
+    EasyLoading().indicatorWidget = indicator;
 
-    // EasyLoading().maskColor =
-    //     maskColor ?? Get.theme.iconTheme.color!.withOpacity(0.4);
-    // EasyLoading().backgroundColor = backgroundColor ?? Get.theme.cardColor;
-    // EasyLoading().indicatorWidget = indicator;
-    // EasyLoading().maskType = maskType;
-    // EasyLoading().dismissOnTap = dismissOnTap;
-    // EasyLoading().dismissOnTap = dismissOnTap;
-    // EasyLoading().indicatorWidget = spinner;
-EasyLoading.showProgress(0.3, status: 'downloading...');
-
-EasyLoading.showSuccess('Great Success!');
-
-EasyLoading.showError('Failed with Error');
-
-EasyLoading.showInfo('Useful Information.');
-
-EasyLoading.showToast('Toast');
     // return
     return this;
   }
