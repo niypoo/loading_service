@@ -19,18 +19,35 @@ class LoadingService extends GetxService {
     this.maskType = EasyLoadingMaskType.black,
     this.indicator,
     this.dismissOnTap = false,
-    this.maskColor = Colors.black12,
-    this.backgroundColor = Colors.black12,
+    this.maskColor,
+    this.backgroundColor,
   });
 
   Future<LoadingService> init() async {
-    EasyLoading().maskColor = maskColor ?? Get.theme.iconTheme.color!.withOpacity(0.4);
-    EasyLoading().backgroundColor = backgroundColor ?? Get.theme.cardColor;
-    EasyLoading().indicatorWidget = indicator;
-    EasyLoading().maskType = maskType;
-    EasyLoading().dismissOnTap = dismissOnTap;
-    EasyLoading().dismissOnTap = dismissOnTap;
-    EasyLoading().indicatorWidget = spinner;
+    EasyLoading.instance
+      ..displayDuration = const Duration(milliseconds: 2000)
+      ..indicatorType = EasyLoadingIndicatorType.fadingCircle
+      ..loadingStyle = EasyLoadingStyle.dark
+      ..indicatorSize = 45.0
+      ..radius = 10.0
+      ..progressColor = Colors.yellow
+      ..backgroundColor = Colors.green
+      ..indicatorColor = Colors.yellow
+      ..textColor = Colors.yellow
+      ..maskColor = Colors.blue.withOpacity(0.5)
+      ..userInteractions = true
+      ..dismissOnTap = false
+      ..indicatorWidget = spinner;
+      // ..customAnimation = CustomAnimation();
+
+    // EasyLoading().maskColor =
+    //     maskColor ?? Get.theme.iconTheme.color!.withOpacity(0.4);
+    // EasyLoading().backgroundColor = backgroundColor ?? Get.theme.cardColor;
+    // EasyLoading().indicatorWidget = indicator;
+    // EasyLoading().maskType = maskType;
+    // EasyLoading().dismissOnTap = dismissOnTap;
+    // EasyLoading().dismissOnTap = dismissOnTap;
+    // EasyLoading().indicatorWidget = spinner;
 
     // return
     return this;
