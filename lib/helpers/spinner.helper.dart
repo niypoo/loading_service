@@ -9,7 +9,7 @@ class SpinnerHelper {
     return SizedBox(
       height: size,
       width: size,
-      child: LoadingService.to.spinner,
+      child: LoadingService.to.indicator,
     );
   }
 
