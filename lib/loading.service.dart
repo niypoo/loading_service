@@ -48,7 +48,15 @@ class LoadingService extends GetxService {
     // EasyLoading().dismissOnTap = dismissOnTap;
     // EasyLoading().dismissOnTap = dismissOnTap;
     // EasyLoading().indicatorWidget = spinner;
+EasyLoading.showProgress(0.3, status: 'downloading...');
 
+EasyLoading.showSuccess('Great Success!');
+
+EasyLoading.showError('Failed with Error');
+
+EasyLoading.showInfo('Useful Information.');
+
+EasyLoading.showToast('Toast');
     // return
     return this;
   }
